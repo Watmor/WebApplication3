@@ -1,0 +1,23 @@
+﻿@page
+@model WebApplication3.Pages.Users.IndexModel
+@{
+}
+
+<h2>Users</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>@user.Name</td>
+                <td>@user.Email</td>
+            </tr>
+        }
+    </tbody>
+</table>

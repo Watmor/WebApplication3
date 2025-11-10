@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\htuan\\source\\repos\\WebApplication3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AE82D126-199C-4A74-ACF1-859BF5C3CFAC}|WebApplication3\\WebApplication3.csproj|c:\\users\\htuan\\source\\repos\\webapplication3\\webapplication3\\pages\\users\\signin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AE82D126-199C-4A74-ACF1-859BF5C3CFAC}|WebApplication3\\WebApplication3.csproj|solutionrelative:webapplication3\\pages\\users\\signin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE82D126-199C-4A74-ACF1-859BF5C3CFAC}|WebApplication3\\WebApplication3.csproj|c:\\users\\htuan\\source\\repos\\webapplication3\\webapplication3\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AE82D126-199C-4A74-ACF1-859BF5C3CFAC}|WebApplication3\\WebApplication3.csproj|solutionrelative:webapplication3\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE82D126-199C-4A74-ACF1-859BF5C3CFAC}|WebApplication3\\WebApplication3.csproj|c:\\users\\htuan\\source\\repos\\webapplication3\\webapplication3\\pages\\sign_up.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE82D126-199C-4A74-ACF1-859BF5C3CFAC}|WebApplication3\\WebApplication3.csproj|solutionrelative:webapplication3\\pages\\sign_up.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE82D126-199C-4A74-ACF1-859BF5C3CFAC}|WebApplication3\\WebApplication3.csproj|c:\\users\\htuan\\source\\repos\\webapplication3\\webapplication3\\pages\\users\\signin.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE82D126-199C-4A74-ACF1-859BF5C3CFAC}|WebApplication3\\WebApplication3.csproj|solutionrelative:webapplication3\\pages\\users\\signin.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE82D126-199C-4A74-ACF1-859BF5C3CFAC}|WebApplication3\\WebApplication3.csproj|c:\\users\\htuan\\source\\repos\\webapplication3\\webapplication3\\pages\\users\\user_info.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE82D126-199C-4A74-ACF1-859BF5C3CFAC}|WebApplication3\\WebApplication3.csproj|solutionrelative:webapplication3\\pages\\users\\user_info.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE82D126-199C-4A74-ACF1-859BF5C3CFAC}|WebApplication3\\WebApplication3.csproj|c:\\users\\htuan\\source\\repos\\webapplication3\\webapplication3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE82D126-199C-4A74-ACF1-859BF5C3CFAC}|WebApplication3\\WebApplication3.csproj|solutionrelative:webapplication3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\htuan\\source\\repos\\WebApplication3\\WebApplication3\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "WebApplication3\\Pages\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\htuan\\source\\repos\\WebApplication3\\WebApplication3\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "WebApplication3\\Pages\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-09T17:59:26.582Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Sign_up.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\htuan\\source\\repos\\WebApplication3\\WebApplication3\\Pages\\Sign_up.cshtml.cs",
+              "RelativeDocumentMoniker": "WebApplication3\\Pages\\Sign_up.cshtml.cs",
+              "ToolTip": "C:\\Users\\htuan\\source\\repos\\WebApplication3\\WebApplication3\\Pages\\Sign_up.cshtml.cs",
+              "RelativeToolTip": "WebApplication3\\Pages\\Sign_up.cshtml.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAowEEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-09T18:26:17.44Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\htuan\\source\\repos\\WebApplication3\\WebApplication3\\Program.cs",
+              "RelativeDocumentMoniker": "WebApplication3\\Program.cs",
+              "ToolTip": "C:\\Users\\htuan\\source\\repos\\WebApplication3\\WebApplication3\\Program.cs",
+              "RelativeToolTip": "WebApplication3\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-09T18:15:54.952Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "User_Info.cs",
+              "DocumentMoniker": "C:\\Users\\htuan\\source\\repos\\WebApplication3\\WebApplication3\\Pages\\Users\\User_Info.cs",
+              "RelativeDocumentMoniker": "WebApplication3\\Pages\\Users\\User_Info.cs",
+              "ToolTip": "C:\\Users\\htuan\\source\\repos\\WebApplication3\\WebApplication3\\Pages\\Users\\User_Info.cs",
+              "RelativeToolTip": "WebApplication3\\Pages\\Users\\User_Info.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-09T18:15:35.189Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Signin.cshtml",
+              "DocumentMoniker": "C:\\Users\\htuan\\source\\repos\\WebApplication3\\WebApplication3\\Pages\\Users\\Signin.cshtml",
+              "RelativeDocumentMoniker": "WebApplication3\\Pages\\Users\\Signin.cshtml",
+              "ToolTip": "C:\\Users\\htuan\\source\\repos\\WebApplication3\\WebApplication3\\Pages\\Users\\Signin.cshtml",
+              "RelativeToolTip": "WebApplication3\\Pages\\Users\\Signin.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-09T17:59:24.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Signin.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\htuan\\source\\repos\\WebApplication3\\WebApplication3\\Pages\\Users\\Signin.cshtml.cs",
+              "RelativeDocumentMoniker": "WebApplication3\\Pages\\Users\\Signin.cshtml.cs",
+              "ToolTip": "C:\\Users\\htuan\\source\\repos\\WebApplication3\\WebApplication3\\Pages\\Users\\Signin.cshtml.cs",
+              "RelativeToolTip": "WebApplication3\\Pages\\Users\\Signin.cshtml.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAIwDQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-09T17:59:12.183Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
