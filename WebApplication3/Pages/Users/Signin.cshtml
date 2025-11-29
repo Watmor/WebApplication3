@@ -3,7 +3,7 @@
 @{
 }
 
-<h2>Login</h2>
+@* <h2>Login</h2>
 
 <form method="post">
     <div>
@@ -20,5 +20,56 @@
 
     <button type="submit">Login</button>
 
+    
+    
+    <a asp-page="/Users/Signin"
+       asp-page-handler="GoogleLogin"
+       class="btn btn-danger w-100">
+        Sign in with Google
+    </a>
+
     <p style="color:red">@Model.ErrorMessage</p>
-</form>
+</form> *@
+
+
+<div class="login-page d-flex justify-content-center align-items-center vh-100">
+    <div class="login-card card shadow p-5">
+        <h2 class="text-center mb-4">Sign In to Bookstore</h2>
+
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input asp-for="Input.Email" class="form-control" placeholder="Enter your email" required />
+                <span class="text-danger" asp-validation-for="Input.Email"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input asp-for="Input.Password" type="password" class="form-control" placeholder="Enter your password" required />
+                <span class="text-danger" asp-validation-for="Input.Password"></span>
+            </div>
+
+            <div class="d-grid mt-4">
+                <button type="submit" class="btn btn-primary btn-lg">Sign In</button>
+            </div>
+
+            <div class="google-wrapper mt-3">
+                <a asp-page="/Users/Signin"
+                   asp-page-handler="GoogleLogin"
+                   class="btn google-btn w-100">
+                    <img src="/img/google.png" class="google-icon" />
+                    Sign in with Google
+                </a>
+            </div>
+
+            <p class="text-danger text-center mt-3">@Model.ErrorMessage</p>
+
+            <div class="text-center mt-3">
+                <small>
+                    Don't have an account?
+                    <a asp-page="/Users/Sign_up">Register here</a>
+                </small>
+            </div>
+        </form>
+    </div>
+</div>

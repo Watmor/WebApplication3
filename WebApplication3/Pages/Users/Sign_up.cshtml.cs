@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
 using WebApplication3.Pages.Users;
 
-namespace WebApplication3.Pages
+namespace WebApplication3.Pages.Users
 {
     public class Sign_upModel : PageModel
     {

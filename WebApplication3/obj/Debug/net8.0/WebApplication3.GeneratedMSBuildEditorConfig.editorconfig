@@ -32,6 +32,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/htuan/source/repos/WebApplication3/WebApplication3/Pages/NewFolder/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3Rm9sZGVyXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/htuan/source/repos/WebApplication3/WebApplication3/Pages/NewFolder/Productdetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV3Rm9sZGVyXFByb2R1Y3RkZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/htuan/source/repos/WebApplication3/WebApplication3/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -40,16 +48,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/htuan/source/repos/WebApplication3/WebApplication3/Pages/Sign_up.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2lnbl91cC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/htuan/source/repos/WebApplication3/WebApplication3/Pages/Users/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/htuan/source/repos/WebApplication3/WebApplication3/Pages/Users/Signin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlcnNcU2lnbmluLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/htuan/source/repos/WebApplication3/WebApplication3/Pages/Users/Sign_up.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlcnNcU2lnbl91cC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/htuan/source/repos/WebApplication3/WebApplication3/Pages/_ViewImports.cshtml]

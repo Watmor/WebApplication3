@@ -1,22 +1,347 @@
-html {
-  font-size: 14px;
+﻿body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /*    background-color: #E7DDFF;*/
+    background: linear-gradient(to bottom right,#FEF729, #E529FE );
+    color: #333;
 }
 
-@media (min-width: 768px) {
-  html {
+.navbar {
+    transition: background 0.3s ease;
+}
+
+    .navbar .nav-link {
+        color: #555;
+        font-weight: 500;
+        transition: color 0.2s;
+    }
+
+        .navbar .nav-link:hover {
+            color: #F7E9B3;
+        }
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+footer {
+    background-color: #df88f2;
+}
+
+    footer a {
+        color: #AE8CFF;
+        text-decoration: none;
+    }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+.container main {
+    min-height: 70vh;
+}
+
+.hero-banner {
+    background: url('images/banner.jpg') no-repeat center center;
+    background-size: cover;
+    height: 400px;
+    position: relative;
+    color: palegoldenrod;
+}
+
+    .hero-banner::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for readability */
+    }
+
+.banner-content {
+    position: relative;
+    z-index: 1;
+
+}
+
+    .banner-content h1 {
+        font-size: 3rem;
+        font-weight: bold;
+
+    }
+
+    .banner-content p {
+        font-size: 1.2rem;
+
+    }
+
+    .banner-content a.btn {
+        border: none; /* Remove borders */
+        color: white; /* Add a text color */
+        padding: 14px 28px; /* Add some padding */
+        cursor: pointer; /* Add a pointer cursor on mouse-over */
+    }
+/* Hero Banner */
+.hero-banner {
+    background: url('/images/banner.jpg') no-repeat center center;
+    background-size: cover;
+    height: 450px;
+    position: relative;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .hero-banner::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.45);
+    }
+
+.banner-content {
+    position: relative;
+    text-align: center;
+    z-index: 5;
+}
+
+    .banner-content h1 {
+        font-size: 3rem;
+        font-weight: bold;
+    }
+
+    .banner-content p {
+        font-size: 1.25rem;
+        margin-top: 10px;
+    }
+
+/* Categories */
+.category-card {
+    background: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform .2s;
+}
+
+    .category-card:hover {
+        transform: translateY(-5px);
+    }
+
+/* Books */
+.book-card {
+    background: #fff;
+    border-radius: 10px;
+    transition: transform .2s;
+}
+
+    .book-card:hover {
+        transform: translateY(-5px);
+    }
+.login-page {
+    background: url('/images/login-bg.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+
+    /* Optional dark overlay for readability */
+    .login-page::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0,0,0,0.5);
+    }
+
+/* Center the card */
+.login-card {
+    position: relative; /* above overlay */
+    z-index: 2;
+    width: 400px;
+    border-radius: 15px;
+    background-color: #ffffff;
+    padding: 40px 30px;
+}
+
+    /* Heading */
+    .login-card h2 {
+        font-weight: bold;
+        color: #333;
+    }
+
+    /* Input fields */
+    .login-card .form-control {
+        border-radius: 50px;
+        padding: 10px 15px;
+    }
+
+    /* Buttons */
+    .login-card .btn-primary {
+        border-radius: 50px;
+        font-size: 1.1rem;
+    }
+
+    /* Link */
+    .login-card small a {
+        text-decoration: none;
+        color: #007bff;
+    }
+
+        .login-card small a:hover {
+            text-decoration: underline;
+        }
+        /*privacy*/
+.privacy-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px 25px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    line-height: 1.8;
+    color: #333;
+    font-size: 17px;
+    animation: fadeIn .7s ease;
+}
+
+.privacy-title {
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #222;
+    letter-spacing: 0.5px;
+}
+
+.privacy-updated-date {
+    text-align: center;
+    color: #777;
+    font-size: 15px;
+    margin-bottom: 40px;
+}
+
+.privacy-section {
+    margin-bottom: 35px;
+}
+
+    .privacy-section h2 {
+        font-size: 26px;
+        color: #333;
+        margin-bottom: 15px;
+        padding-left: 8px;
+        border-left: 4px solid #f0a500; /* vàng nhạt đẹp */
+    }
+
+    .privacy-section p {
+        margin-bottom: 15px;
+    }
+
+    .privacy-section ul {
+        padding-left: 25px;
+        margin-top: 10px;
+    }
+
+        .privacy-section ul li {
+            margin-bottom: 10px;
+        }
+
+    .privacy-section strong {
+        color: #000;
+    }
+
+.privacy-note-box {
+    background: #fff7e6;
+    padding: 15px 20px;
+    border-left: 4px solid #ffb341;
+    border-radius: 8px;
+    margin: 30px 0;
+    color: #6f4f0c;
     font-size: 16px;
-  }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+@media (max-width: 768px) {
+    .privacy-container {
+        padding: 20px;
+        margin: 20px 10px;
+    }
+
+    .privacy-title {
+        font-size: 28px;
+    }
+
+    .privacy-section h2 {
+        font-size: 22px;
+    }
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+/* Soft entrance animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* about*/
+.about-section {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
 }
 
-body {
-  margin-bottom: 60px;
+.about-header h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
 }
+
+.about-header p {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 40px;
+    color: #555;
+}
+
+.about-content {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+    .about-text h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .about-text p {
+        margin-bottom: 20px;
+        line-height: 1.8;
+    }
+
+    .about-text ul {
+        margin-left: 20px;
+    }
+
+.about-image {
+    flex: 1;
+    text-align: center;
+}
+
+    .about-image img {
+        width: 100%;
+        max-width: 400px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+   

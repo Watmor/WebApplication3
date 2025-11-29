@@ -4,7 +4,83 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="hero-banner">
+    <div class="banner-content">
+        <h1>Welcome to My Bookstore</h1>
+        <p>Explore thousands of books of all genres. Read more, grow more!</p>
+        <a asp-page="/Shop" class="btn btn-primary btn-lg">Shop Now</a>
+    </div>
+</section>
+
+<section class="categories container py-5">
+    <h2 class="text-center mb-4">Featured Categories</h2>
+    <div class="row g-4">
+        <div class="col-md-3">
+            <div class="category-card p-3 text-center shadow-sm">
+                <h5>Horror</h5>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="category-card p-3 text-center shadow-sm">
+                <h5>Fantasy</h5>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="category-card p-3 text-center shadow-sm">
+                <h5>Romance</h5>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="category-card p-3 text-center shadow-sm">
+                <h5>Science Fiction</h5>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="featured-books container py-5">
+    <h2 class="text-center mb-4">Featured Books</h2>
+
+    <div class="row g-4">
+        <!-- Book 1 -->
+        <div class="col-md-3">
+            <div class="book-card shadow-sm p-3">
+                <img src="/images/book1.webp" class="img-fluid mb-2" alt="Book 1">
+                <h5>The Last Four Things – Paul Hoffman</h5>
+                <p class="text-muted">₫299.000</p>
+                <button class="btn btn-sm btn-primary w-100">Add to cart</button>
+            </div>
+        </div>
+
+        <!-- Book 2 -->
+        <div class="col-md-3">
+            <div class="book-card shadow-sm p-3">
+                <img src="/images/book2.jpg" class="img-fluid mb-2" alt="Book 2">
+                <h5>Perfume – Patrick Suskind</h5>
+                <p class="text-muted">₫350.000</p>
+                <button class="btn btn-sm btn-primary w-100">Add to cart</button>
+            </div>
+        </div>
+
+        <!-- Book 3 -->
+        <div class="col-md-3">
+            <div class="book-card shadow-sm p-3">
+                <img src="/images/book3.webp" class="img-fluid mb-2" alt="Book 3">
+                <h5>Soul – Olivia Willson</h5>
+                <p class="text-muted">₫420.000</p>
+                <button class="btn btn-sm btn-primary w-100">Add to cart</button>
+            </div>
+        </div>
+
+        <!-- Book 4 -->
+        <div class="col-md-3">
+            <div class="book-card shadow-sm p-3">
+                <img src="/images/book4.webp" class="img-fluid mb-2" alt="Book 4">
+                <h5>The Hypocrite World – Sophia Hill</h5>
+                <p class="text-muted">₫499.000</p>
+                <button class="btn btn-sm btn-primary w-100">Add to cart</button>
+            </div>
+        </div>
+    </div>
+</section>
+

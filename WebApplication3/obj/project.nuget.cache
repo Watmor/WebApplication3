@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "9NPSvfbGSM0=",
+  "dgSpecHash": "FV52GUBklG4=",
   "success": true,
   "projectFilePath": "C:\\Users\\htuan\\source\\repos\\WebApplication3\\WebApplication3\\WebApplication3.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\htuan\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\htuan\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",
+    "C:\\Users\\htuan\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\7.0.13\\microsoft.aspnetcore.authentication.google.7.0.13.nupkg.sha512",
     "C:\\Users\\htuan\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\8.0.0\\microsoft.bcl.asyncinterfaces.8.0.0.nupkg.sha512",
     "C:\\Users\\htuan\\.nuget\\packages\\microsoft.bcl.cryptography\\8.0.0\\microsoft.bcl.cryptography.8.0.0.nupkg.sha512",
     "C:\\Users\\htuan\\.nuget\\packages\\microsoft.data.sqlclient\\6.1.2\\microsoft.data.sqlclient.6.1.2.nupkg.sha512",

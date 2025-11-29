@@ -1,0 +1,440 @@
+﻿@page
+@model Bookstore.Pages.NewFolder.ProductdetailModel
+@using System.Text.Json
+@{
+    ViewData["Title"] = "My Bookstore";
+    // Chuẩn bị object JS từ Model.Books - THÊM CATEGORY
+    var booksDict = Model.Books.ToDictionary(
+        b => b.BookID.ToString(),
+        b => new
+        {
+            title = b.Title ?? "",
+            author = b.Author ?? "",
+            price = (b.Price).ToString("N0") + " đ",
+            image = string.IsNullOrEmpty(b.ImageUrl) ? "https://via.placeholder.com/400x500?text=No+Image" : b.ImageUrl,
+            description = b.Summary ?? "",
+            category = b.Categories ?? "" // THÊM DÒNG NÀY
+        }
+    );
+    var booksJson = JsonSerializer.Serialize(booksDict);
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .shop-header {
+            background: linear-gradient(to bottom right, #FC1AA5,#F0FC1A,#FC1A71);
+        }
+
+        .book-card {
+            transition: transform 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+            .book-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+            }
+
+        .promo-box {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+        }
+
+        .promo-list {
+            padding-left: 1.2rem;
+        }
+
+            .promo-list li {
+                margin-bottom: 5px;
+            }
+
+        .btn-primary {
+            background-color: #6c5ce7;
+            border-color: #6c5ce7;
+        }
+
+            .btn-primary:hover {
+                background-color: #5b4bc4;
+                border-color: #5b4bc4;
+            }
+
+        .img-fluid {
+            max-height: 400px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        h1, h2, h4, h6 {
+            color: #2d3436;
+        }
+
+        .filter-box {
+            transition: all 0.3s ease;
+        }
+
+            .filter-box:hover {
+                box-shadow: 0 5px 15px rgba(0,0,0,0.08) !important;
+            }
+
+        .book-modal .modal-dialog {
+            max-width: 900px;
+        }
+
+        .book-modal .modal-content {
+            border-radius: 12px;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .book-modal .modal-header {
+            border-bottom: 1px solid #e9ecef;
+            padding: 1.5rem;
+        }
+
+        .book-modal .modal-body {
+            padding: 1.5rem;
+        }
+
+        .book-modal .modal-footer {
+            border-top: 1px solid #e9ecef;
+            padding: 1rem 1.5rem;
+        }
+
+        .related-thumb {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+            .related-thumb:hover {
+                transform: scale(1.05);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <!-- Phần Header -->
+    <section class="shop-header py-5 text-center text-white">
+        <h1>My Bookstore</h1>
+        <p>Explore our collection of thousands of high-quality books</p>
+    </section>
+
+    <!-- Phần Bookstore -->
+    <div class="container my-5">
+        <!-- ===== Advanced Filter ===== -->
+        <div class="filter-box shadow-sm p-4 mb-4 rounded bg-white">
+            <h5 class="mb-3">Advanced Filter</h5>
+
+            <div class="row g-3">
+                <!-- Category -->
+                <div class="col-md-3">
+                    <label class="form-label">Category</label>
+                    <select class="form-select shadow-sm" id="filter-category">
+                        <option value="All">All</option>
+                        <option value="Horror">Horror</option>
+                        <option value="Fantasy">Fantasy</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Science Fiction">Science Fiction</option>
+                        <option value="Self-Help">Self-Help</option>
+                        <option value="Mystery">Mystery</option>
+                        <option value="Comics / Manga">Comics / Manga</option>
+                        <option value="Fiction">Fiction</option>
+                    </select>
+                </div>
+
+                <!-- Price Range -->
+                <div class="col-md-3">
+                    <label class="form-label">Price Range</label>
+                    <select class="form-select shadow-sm" id="filter-price">
+                        <option value="All">All</option>
+                        <option value="below100">Below 100k</option>
+                        <option value="100-200">100k – 200k</option>
+                        <option value="200-450">200k – 450k</option>
+                        <option value="above450">Above 450k</option>
+                    </select>
+                </div>
+
+                <!-- Publication Year -->
+                <div class="col-md-3">
+                    <label class="form-label">Publication Year</label>
+                    <select class="form-select shadow-sm" id="filter-year">
+                        <option value="All">All</option>
+                        <option>2025</option>
+                        <option>2024</option>
+                        <option>2023</option>
+                        <option>2020 – 2022</option>
+                        <option>Before 2020</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="text-end mt-3">
+                <button class="btn btn-primary px-4" id="apply-filter">Filter</button>
+                <button class="btn btn-outline-secondary px-4" id="reset-filter">Reset</button>
+            </div>
+        </div>
+
+        <!-- ===== Book List ===== -->
+        <div class="row g-4" id="book-list">
+            @if (Model.Books == null || Model.Books.Count == 0)
+            {
+                <div class="col-12">
+                    <div class="alert alert-info">Không có sách để hiển thị.</div>
+                </div>
+            }
+            else
+            {
+                @foreach (var book in Model.Books)
+                {
+                    <div class="col-md-3 col-sm-6">
+                        <div class="book-card p-3 shadow-sm h-100 bg-white rounded"
+                             data-bs-toggle="modal"
+                             data-bs-target="#bookModal"
+                             data-book-id="@book.BookID"
+                             data-book-category="@book.Categories">
+                            <!-- THÊM DATA ATTRIBUTE CATEGORY -->
+                            <img src="@(string.IsNullOrEmpty(book.ImageUrl) ? "https://via.placeholder.com/200x250?text=No+Image" : book.ImageUrl)"
+                                 class="img-fluid mb-3 rounded" alt="@book.Title">
+                            <h5 class="book-title">@book.Title</h5>
+                            <p class="text-muted">₫@book.Price.ToString("N0")</p>
+                            <button class="btn btn-primary w-100 btn-sm">View Detail</button>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+
+        <!-- ===== Pagination ===== -->
+        <nav class="mt-5">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled"><a class="page-link">«</a></li>
+                <li class="page-item active"><a class="page-link">1</a></li>
+                <li class="page-item"><a class="page-link">2</a></li>
+                <li class="page-item"><a class="page-link">3</a></li>
+                <li class="page-item"><a class="page-link">»</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Modal Chi tiết Sách -->
+    <div class="modal fade book-modal" id="bookModal" tabindex="-1" aria-labelledby="bookModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bookModalLabel">Book Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-4">
+                        <div class="col-md-5">
+                            <div class="p-3 bg-white shadow-sm rounded">
+                                <img id="modal-image" src="" class="img-fluid rounded" alt="Book Image" />
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <h2 id="modal-title" class="fw-bold"></h2>
+                            <p id="modal-author" class="text-muted"></p>
+                            <div class="bg-light p-3 rounded border mb-3">
+                                <h4 id="modal-price" class="text-danger fw-bold mb-0"></h4>
+                            </div>
+                            <div class="promo-box p-3 rounded mb-4">
+                                <h6 class="fw-bold mb-2">Promotions</h6>
+                                <ul class="promo-list mb-0">
+                                    <li>Free premium bookmark</li>
+                                    <li>10% off orders above ₫300,000</li>
+                                    <li>Free nationwide shipping</li>
+                                </ul>
+                            </div>
+                            <div class="d-flex gap-3 mt-4">
+                                <button class="btn btn-primary px-4 btn-lg" type="button">Add to Cart</button>
+                                <button class="btn btn-danger px-4 btn-lg" type="button">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 mt-4 rounded shadow-sm">
+                        <h4 class="fw-bold mb-3">Description</h4>
+                        <p id="modal-description"></p>
+                    </div>
+                    <div class="mt-4">
+                        <h4 class="fw-bold mb-3">Related Books</h4>
+                        <div id="modal-related" class="row g-3">
+                            <!-- Related books sẽ được thêm bằng JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Dữ liệu sách được inject từ Razor (serialized JSON) - ĐÃ CÓ CATEGORY
+        const books = @Html.Raw(booksJson);
+
+        // Lấy các phần tử DOM
+        const bookModal = document.getElementById('bookModal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalAuthor = document.getElementById('modal-author');
+        const modalPrice = document.getElementById('modal-price');
+        const modalImage = document.getElementById('modal-image');
+        const modalDescription = document.getElementById('modal-description');
+        const modalRelated = document.getElementById('modal-related');
+
+        // Xử lý sự kiện khi modal được hiển thị
+        bookModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            if (!button) return;
+            const bookId = button.getAttribute('data-book-id');
+
+            // Hiển thị loading
+            modalTitle.textContent = "Loading...";
+            modalAuthor.textContent = "";
+            modalPrice.textContent = "";
+            modalDescription.textContent = "";
+            modalRelated.innerHTML = "<div class='col-12 text-center'><div class='loading'></div></div>";
+
+            setTimeout(() => {
+                showBookDetail(bookId);
+            }, 150);
+        });
+
+        // Hiển thị chi tiết sách
+        function showBookDetail(bookId) {
+            const book = books[bookId];
+            if (book) {
+                modalTitle.textContent = book.title;
+                modalAuthor.textContent = `Author: ${book.author}`;
+                modalPrice.textContent = book.price;
+                modalImage.src = book.image;
+                modalImage.alt = book.title;
+                modalDescription.textContent = book.description;
+
+                // Hiển thị sách liên quan
+                displayRelatedBooks(bookId);
+            } else {
+                modalTitle.textContent = "Not found";
+                modalDescription.textContent = "";
+                modalRelated.innerHTML = "";
+            }
+        }
+
+        // Hiển thị sách liên quan (đã sửa để click được)
+        function displayRelatedBooks(currentBookId) {
+            modalRelated.innerHTML = '';
+
+            Object.keys(books).forEach(bookId => {
+                if (bookId !== currentBookId) {
+                    const book = books[bookId];
+                    const relatedBookHTML = `
+                        <div class="col-md-3 col-sm-6">
+                            <div class="related-thumb p-2 shadow-sm bg-white rounded text-center"
+                                 data-book-id="${bookId}">
+                                <img src="${book.image}" class="img-fluid mb-2 rounded" alt="${book.title}" style="max-height: 120px;" />
+                                <h6 class="fw-bold mb-1">${book.title}</h6>
+                                <p class="text-danger mb-0">${book.price}</p>
+                            </div>
+                        </div>
+                    `;
+                    modalRelated.innerHTML += relatedBookHTML;
+                }
+            });
+
+            // Thêm sự kiện click cho các sách liên quan
+            const relatedThumbs = modalRelated.querySelectorAll('.related-thumb');
+            relatedThumbs.forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    const bookId = this.getAttribute('data-book-id');
+                    showBookDetail(bookId);
+                    const modalBody = document.querySelector('.book-modal .modal-body');
+                    if (modalBody) {
+                        modalBody.scrollTop = 0;
+                    }
+                });
+            });
+        }
+
+        // FILTER ĐÃ ĐƯỢC SỬA ĐỂ HOẠT ĐỘNG VỚI CATEGORY
+        document.getElementById('apply-filter').addEventListener('click', () => {
+            const cat = document.getElementById('filter-category').value;
+            const priceRange = document.getElementById('filter-price').value;
+            const year = document.getElementById('filter-year').value;
+
+            const container = document.getElementById('book-list');
+            const cards = container.querySelectorAll('.book-card');
+
+            cards.forEach(card => {
+                const id = card.getAttribute('data-book-id');
+                const b = books[id];
+                if (!b) return;
+
+                // CHECK CATEGORY CHÍNH XÁC - SỬ DỤNG DATA ATTRIBUTE HOẶC TỪ OBJECT BOOKS
+                let passCategory = true;
+                if (cat !== 'All') {
+                    // Lấy category từ data attribute của card
+                    const bookCategory = card.getAttribute('data-book-category') || '';
+                    if (bookCategory) {
+                        // Tách các category bằng dấu phẩy và kiểm tra
+                        const categories = bookCategory.split(',').map(c => c.trim().toLowerCase());
+                        passCategory = categories.includes(cat.toLowerCase());
+                    } else {
+                        passCategory = false;
+                    }
+                }
+
+                // Check price
+                const numericPrice = Number(b.price.replace(/[^0-9.-]+/g,""));
+                let passPrice = true;
+                if (priceRange === 'below100') passPrice = numericPrice < 100000;
+                if (priceRange === '100-200') passPrice = numericPrice >= 100000 && numericPrice <= 200000;
+                if (priceRange === '200-450') passPrice = numericPrice > 200000 && numericPrice <= 450000;
+                if (priceRange === 'above450') passPrice = numericPrice > 450000;
+
+                if (passCategory && passPrice) {
+                    card.parentElement.style.display = '';
+                } else {
+                    card.parentElement.style.display = 'none';
+                }
+            });
+        });
+
+        // Reset filter
+        document.getElementById('reset-filter').addEventListener('click', () => {
+            document.getElementById('filter-category').value = 'All';
+            document.getElementById('filter-price').value = 'All';
+            document.getElementById('filter-year').value = 'All';
+
+            document.querySelectorAll('#book-list > .col-md-3, #book-list > .col-sm-6').forEach(col => col.style.display = '');
+        });
+    </script>
+</body>
+</html>

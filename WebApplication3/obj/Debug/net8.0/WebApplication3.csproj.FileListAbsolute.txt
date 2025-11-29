@@ -78,3 +78,5 @@ C:\Users\htuan\source\repos\WebApplication3\WebApplication3\obj\Debug\net8.0\ref
 C:\Users\htuan\source\repos\WebApplication3\WebApplication3\obj\Debug\net8.0\WebApplication3.pdb
 C:\Users\htuan\source\repos\WebApplication3\WebApplication3\obj\Debug\net8.0\WebApplication3.genruntimeconfig.cache
 C:\Users\htuan\source\repos\WebApplication3\WebApplication3\obj\Debug\net8.0\ref\WebApplication3.dll
+C:\Users\htuan\source\repos\WebApplication3\WebApplication3\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Google.dll
+C:\Users\htuan\source\repos\WebApplication3\WebApplication3\obj\Debug\net8.0\WebApplication3.sourcelink.json

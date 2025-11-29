@@ -1,0 +1,215 @@
+﻿/* Background và căn giữa /
+.auth-wrapper {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffc107, #ffb74d);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+/ Card đăng ký /
+.auth-card {
+    width: 420px;
+    background: #ffffff;
+    padding: 35px 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    animation: fadeIn 0.5s ease;
+}
+
+/ Subtitle /
+.auth-subtitle {
+    color: #777;
+    font-size: 14px;
+}
+
+/ Styling đẹp hơn cho input /
+.auth-input {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    transition: 0.2s;
+}
+
+    .auth-input:focus {
+        border-color: #ffb300;
+        box-shadow: 0 0 0 3px rgba(255,193,7,0.35);
+    }
+
+/ Nút đăng ký /
+.auth-btn {
+    background: #ffa000;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    transition: 0.3s;
+}
+
+    .auth-btn:hover {
+        background: #e69100;
+    }
+
+/ Animation fade in 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}*/
+
+/* Background và căn giữa */
+.auth-wrapper {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffc107, #ffb74d);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+/* Card đăng ký */
+.auth-card {
+    width: 420px;
+    background: #ffffff;
+    padding: 35px 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    animation: fadeIn 0.5s ease;
+}
+
+/* Subtitle */
+.auth-subtitle {
+    color: #777;
+    font-size: 14px;
+}
+
+/* Styling đẹp hơn cho input */
+.auth-input {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    transition: 0.2s;
+}
+
+    .auth-input:focus {
+        border-color: #ffb300;
+        box-shadow: 0 0 0 3px rgba(255,193,7,0.35);
+    }
+
+/* Nút đăng ký */
+.auth-btn {
+    background: #ffa000;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    transition: 0.3s;
+}
+
+    .auth-btn:hover {
+        background: #e69100;
+    }
+
+/* Animation fade in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.auth-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f5f7fb;
+}
+
+.auth-card {
+    width: 420px;
+    background: #fff;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.auth-input {
+    height: 48px;
+    border-radius: 8px;
+}
+
+.auth-btn {
+    background: #4c6ef5;
+    color: white;
+    height: 48px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+    .auth-btn:hover {
+        background: #3b5bdb;
+    }
+
+.google-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    height: 48px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+    .google-btn:hover {
+        background: #f1f1f1;
+    }
+
+.google-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.auth-subtitle {
+    color: #666;
+    font-size: 14px;
+}
+
+.book-card {
+    height: 380px; /* Chiều cao cố định cho toàn bộ card */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+    .book-card img {
+        height: 200px; /* Giới hạn chiều cao ảnh */
+        object-fit: cover; /* Giúp ảnh luôn cắt đẹp */
+        width: 100%;
+    }
+
+    /* Giữ tiêu đề không làm card bị giãn */
+    .book-card h5 {
+        font-size: 16px;
+        height: 40px; /* Cố định chiều cao cho tiêu đề */
+        overflow: hidden;
+    }

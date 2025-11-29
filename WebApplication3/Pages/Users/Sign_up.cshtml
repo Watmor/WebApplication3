@@ -1,0 +1,187 @@
+﻿@page
+@* @using WebApplication3.Pages.Users *@
+@model WebApplication3.Pages.Users.Sign_upModel
+@{
+}
+
+@* <h2>Sign Up</h2>
+<form method="post">
+    <div class="row mb-3">
+        <label class="col-sm3 col-form-label">Name</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="name"
+                   value="@Model.NewUser.Name" />
+        </div>
+    </div>
+    
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Email</label>
+        <div class="col-sm-6">
+            <input type="email" class="form-control" name="email"
+                   value="@Model.NewUser.Email" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Password</label>
+        <div class="col-sm-6">
+            <input type="password" class="form-control" name="password"
+                   value="@Model.NewUser.Password" />
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+
+    <a asp-page="/Users/Signin"
+       asp-page-handler="GoogleLogin"
+       class="btn btn-primary w-100 text-center">
+        Or sign in with Google
+    </a>
+    
+</form> *@
+
+
+
+@* <div class="auth-wrapper">
+    <div class="auth-card">
+        <h3 class="text-center mb-3">Create Account</h3>
+        <p class="text-center auth-subtitle mb-4">Join My BookStore today</p>
+
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label">Full Name</label>
+                <input type="text" name="name" class="form-control auth-input"
+                       placeholder="Enter your full name"
+                       value="@Model.NewUser.Name" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" name="email" class="form-control auth-input"
+                       placeholder="Enter your email"
+                       value="@Model.NewUser.Email" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" name="password" class="form-control auth-input"
+                       placeholder="Create a password"
+                       value="@Model.NewUser.Password" required />
+            </div>
+
+            <button type="submit" class="btn auth-btn w-100">Register</button>
+
+            <div class="google-wrapper mt-3">
+                <a asp-page="/Users/Signin"
+                   asp-page-handler="GoogleLogin"
+                   class="btn google-btn w-100">
+                    <img src="/img/google.png" class="google-icon" />
+                    Or Sign in with Google
+                </a>
+            </div>
+
+            <div class="text-center mt-3">
+                <small>
+                    Already have an account?
+                    <a asp-page="/Users/Signin">Login here</a>
+                </small>
+            </div>
+        </form>
+    </div>
+</div> *@
+
+
+@* <div class="auth-wrapper">
+    <div class="auth-card">
+        <h3 class="text-center mb-3">Create Account</h3>
+        <p class="text-center auth-subtitle mb-4">Join My BookStore today</p>
+
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label">Full Name</label>
+                <input type="text" name="Name" class="form-control auth-input" placeholder="Enter your full name" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" name="Email" class="form-control auth-input" placeholder="Enter your email" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" name="Password" class="form-control auth-input" placeholder="Create a password" required />
+            </div>
+
+            <button type="submit" class="btn auth-btn w-100">Register</button>
+
+            <div class="text-center mt-3">
+                <small>Already have an account? <a asp-page="/Login">Login here</a></small>
+            </div>
+        </form>
+    </div>
+</div> *@
+
+
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <h3 class="text-center mb-3">Create Account</h3>
+        <p class="text-center auth-subtitle mb-4">Join My BookStore today</p>
+
+        <form method="post">
+
+            <!-- Full Name -->
+            <div class="mb-3">
+                <label class="form-label">Full Name</label>
+                <input type="text"
+                       name="name"
+                       class="form-control auth-input"
+                       placeholder="Enter your full name"
+                       value="@Model.NewUser.Name"
+                       required />
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email"
+                       name="email"
+                       class="form-control auth-input"
+                       placeholder="Enter your email"
+                       value="@Model.NewUser.Email"
+                       required />
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password"
+                       name="password"
+                       class="form-control auth-input"
+                       placeholder="Create a password"
+                       value="@Model.NewUser.Password"
+                       required />
+            </div>
+
+            <!-- Register Button -->
+            <button type="submit" class="btn auth-btn w-100">Register</button>
+
+            <!-- Google Login -->
+            <div class="google-wrapper mt-3">
+                <a asp-page="/Users/Signin"
+                   asp-page-handler="GoogleLogin"
+                   class="btn google-btn w-100">
+                    <img src="/img/google.png" class="google-icon" />
+                    Or Sign in with Google
+                </a>
+            </div>
+
+            <div class="text-center mt-3">
+                <small>
+                    Already have an account?
+                    <a asp-page="/Users/Signin">Login here</a>
+                </small>
+            </div>
+
+        </form>
+    </div>
+</div>
