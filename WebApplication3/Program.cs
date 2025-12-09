@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Authentication.Google;
+﻿using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace WebApplication3
@@ -20,13 +20,15 @@ namespace WebApplication3
                 options.ClientId =builder.Configuration.GetSection("GoogleKeys:ClientId").Value;
                 options.ClientSecret = builder.Configuration.GetSection("GoogleKeys:ClientSecret").Value;
 
-                options.Scope.Add("profile"); // t�n, avatar
+                options.Scope.Add("profile"); // tên, avatar
                 options.Scope.Add("email");   // email
             });
 
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+            builder.Services.AddSession(); // <-- bật session
+            builder.Services.AddDistributedMemoryCache(); // cần cho session
 
             var app = builder.Build();
 
@@ -38,6 +40,7 @@ namespace WebApplication3
                 app.UseHsts();
             }
 
+            //app.UseSession(); // <-- thêm Middleware session
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -46,6 +49,7 @@ namespace WebApplication3
             app.UseAuthorization();
             app.UseAuthentication();
 
+            app.UseSession(); // <-- thêm Middleware session
             app.MapRazorPages();
 
             app.Run();

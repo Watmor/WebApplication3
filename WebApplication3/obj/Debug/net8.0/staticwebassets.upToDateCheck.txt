@@ -1,4 +1,5 @@
 wwwroot\css\auth.css
+wwwroot\css\cart.css
 wwwroot\css\home.css
 wwwroot\css\site.css
 wwwroot\favicon.ico

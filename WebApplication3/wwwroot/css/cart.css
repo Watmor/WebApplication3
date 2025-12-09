@@ -1,0 +1,38 @@
+﻿/* ===== Cart Header ===== */
+.cart-header {
+    background: linear-gradient(135deg, #7F00CE, #EF8905 );
+}
+
+/* ===== Cart Page ===== */
+.cart-img {
+    width: 70px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.cart-summary {
+    background: #f8faff;
+    border: 1px solid #dce5ff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.table thead th {
+    background: #f8f9fa;
+    font-weight: 600;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+/* Button */
+.btn-danger {
+    background-color: #ff4d4d;
+}
+
+    .btn-danger:hover {
+        background-color: #e60000;
+    }

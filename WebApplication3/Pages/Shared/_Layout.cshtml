@@ -23,14 +23,30 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/NewFolder/Productdetail">Book</a>
                         </li>
+
+                        <!-- Sign In / Log Out -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Users/Signin">Sign In</a>
+                            @if (Context.Session.GetInt32("UserId") != null)
+                            {
+                                <!-- Đã đăng nhập → hiện Log Out -->
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Users/Signin" asp-page-handler="Logout">Log Out</a>
+                            }
+                            else
+                            {
+                                <!-- Chưa đăng nhập → hiện Sign In -->
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Users/Signin">Sign In</a>
+                            }
                         </li>
+
+                        <!-- ❌ Loại bỏ Sign Up -->
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="Users/Sign_up">Sign Up</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Payment/Cart">Cart</a>
+                        </li>
                     </ul>
                 </div>
             </div>

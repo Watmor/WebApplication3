@@ -1,0 +1,325 @@
+﻿@page
+@model WebApplication3.Pages.Payment.CartModel
+@{
+}
+
+@* <link rel="stylesheet" href="/css/cart.css" />
+<section class="cart-header py-4 text-center text-white">
+    <h1>Your Shopping Cart</h1>
+    <p>Review your selected items before checkout</p>
+</section>
+
+<div class="container my-5 cart-page">
+
+    <!-- ===== Cart Table ===== -->
+    <div class="table-responsive shadow-sm bg-white p-4 rounded">
+        <table class="table align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>Book</th>
+                    <th>Price</th>
+                    <th width="140">Quantity</th>
+                    <th>Total</th>
+                    <th width="80"></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <!-- ==== Cart Item 1 ==== -->
+                <tr>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <img src="/images/book1.webp" class="cart-img me-3" />
+                            <span>The Last Four Things</span>
+                        </div>
+                    </td>
+
+                    <td>₫299,000</td>
+
+                    <td>
+                        <input type="number" value="1" min="1" class="form-control text-center shadow-sm">
+                    </td>
+
+                    <td>₫299,000</td>
+
+                    <td>
+                        <button class="btn btn-danger btn-sm">Remove</button>
+                    </td>
+                </tr>
+
+                <!-- ==== Cart Item 2 ==== -->
+                <tr>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <img src="/images/book2.jpg" class="cart-img me-3" />
+                            <span>Perfume – Patrick Suskind</span>
+                        </div>
+                    </td>
+
+                    <td>₫350,000</td>
+
+                    <td>
+                        <input type="number" value="1" min="1" class="form-control text-center shadow-sm">
+                    </td>
+
+                    <td>₫350,000</td>
+
+                    <td>
+                        <button class="btn btn-danger btn-sm">Remove</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- ===== Cart Summary ===== -->
+    <div class="row mt-4">
+        <div class="col-md-6"></div>
+
+        <div class="col-md-6">
+            <div class="cart-summary shadow-sm p-4 rounded bg-white">
+
+                <h5 class="mb-3">Order Summary</h5>
+
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Subtotal</span>
+                    <strong>₫649,000</strong>
+                </div>
+
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Shipping</span>
+                    <strong>₫30,000</strong>
+                </div>
+
+                <hr>
+
+                <div class="d-flex justify-content-between mb-3">
+                    <span>Total</span>
+                    <strong class="text-danger fs-5">₫679,000</strong>
+                </div>
+
+                <button class="btn btn-primary w-100 py-2">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+</div> *@
+
+
+
+@* đay la phan chua sua xoh *@
+@* <link rel="stylesheet" href="/css/cart.css" />
+
+<section class="cart-header py-4 text-center text-white">
+    <h1>Your Shopping Cart</h1>
+    <p>Review your selected items before checkout</p>
+</section>
+
+<div class="container my-5 cart-page">
+
+    <div class="table-responsive shadow-sm bg-white p-4 rounded">
+        <table class="table align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>Book</th>
+                    <th>Price</th>
+                    <th width="140">Quantity</th>
+                    <th>Total</th>
+                    <th width="80"></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model.CartItems)
+                {
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="@item.ImageUrl" class="cart-img me-3" />
+                                <span>@item.Title</span>
+                            </div>
+                        </td>
+
+                        <td>@item.Price.ToString("C0", new System.Globalization.CultureInfo("vi-VN"))</td>
+
+                        <td>
+                            <input type="number" value="@item.Quantity" min="1" class="form-control text-center shadow-sm">
+                        </td>
+
+                        <td>@item.LineTotal.ToString("C0", new System.Globalization.CultureInfo("vi-VN"))</td>
+
+                        <td>
+                            <form method="post" asp-page-handler="Remove">
+                                <input type="hidden" name="cartItemId" value="@item.CartItemID" />
+                                <button class="btn btn-danger btn-sm">Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Summary -->
+    <div class="row mt-4">
+        <div class="col-md-6"></div>
+
+        <div class="col-md-6">
+            <div class="cart-summary shadow-sm p-4 rounded bg-white">
+
+                <h5 class="mb-3">Order Summary</h5>
+
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Subtotal</span>
+                    <strong>@Model.Subtotal.ToString("C0", new System.Globalization.CultureInfo("vi-VN"))</strong>
+                </div>
+
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Shipping</span>
+                    <strong>@Model.Shipping.ToString("C0", new System.Globalization.CultureInfo("vi-VN"))</strong>
+                </div>
+
+                <hr>
+
+                <div class="d-flex justify-content-between mb-3">
+                    <span>Total</span>
+                    <strong class="text-danger fs-5">@Model.Total.ToString("C0", new System.Globalization.CultureInfo("vi-VN"))</strong>
+                </div>
+
+                <button class="btn btn-primary w-100 py-2">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+</div> *@
+
+
+                  
+<link rel="stylesheet" href="/css/cart.css" />
+
+<section class="cart-header py-4 text-center text-white">
+    <h1>Your Shopping Cart</h1>
+    <p>Review your selected items before checkout</p>
+</section>
+
+<div class="container my-5 cart-page">
+
+    <div class="table-responsive shadow-sm bg-white p-4 rounded">
+        <table class="table align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>Book</th>
+                    <th>Price</th>
+                    <th width="140">Quantity</th>
+                    <th>Total</th>
+                    <th width="80"></th>
+                </tr>
+            </thead>
+            <tbody id="cart-body">
+                <!-- Rows sẽ được sinh ra bằng JS -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Summary -->
+    <div class="row mt-4">
+        <div class="col-md-6"></div>
+
+        <div class="col-md-6">
+            <div class="cart-summary shadow-sm p-4 rounded bg-white">
+
+                <h5 class="mb-3">Order Summary</h5>
+
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Subtotal</span>
+                    <strong id="subtotal">0 ₫</strong>
+                </div>
+
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Shipping</span>
+                    <strong id="shipping">30.000 ₫</strong>
+                </div>
+
+                <hr>
+
+                <div class="d-flex justify-content-between mb-3">
+                    <span>Total</span>
+                    <strong id="total" class="text-danger fs-5">0 ₫</strong>
+                </div>
+
+                <button class="btn btn-primary w-100 py-2">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Dữ liệu mẫu
+    const CartItems = [
+        { CartItemID: 1, Title: "The Last Four Things", Price: 299000, Quantity: 1, ImageUrl: "/images/book1.webp" },
+        { CartItemID: 2, Title: "Perfume – Patrick Suskind", Price: 350000, Quantity: 2, ImageUrl: "/images/book2.jpg" },
+        { CartItemID: 3, Title: "Harry Potter and the Philosopher's Stone", Price: 450000, Quantity: 1, ImageUrl: "/images/book3.jpg" }
+    ];
+
+    const shipping = 30000;
+
+    function renderCart() {
+        const tbody = document.getElementById('cart-body');
+        tbody.innerHTML = '';
+
+        let subtotal = 0;
+
+        CartItems.forEach(item => {
+            const lineTotal = item.Price * item.Quantity;
+            subtotal += lineTotal;
+
+            const row = document.createElement('tr');
+            row.setAttribute('data-id', item.CartItemID);
+
+            row.innerHTML = `
+                <td>
+                    <div class="d-flex align-items-center">
+                        <img src="${item.ImageUrl}" class="cart-img me-3" style="width:60px;height:80px;object-fit:cover;">
+                        <span>${item.Title}</span>
+                    </div>
+                </td>
+                <td>${item.Price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
+                <td><input type="number" min="1" class="form-control text-center shadow-sm quantity-input" value="${item.Quantity}"></td>
+                <td class="line-total">${lineTotal.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
+                <td><button class="btn btn-danger btn-sm remove-btn">Remove</button></td>
+            `;
+
+            tbody.appendChild(row);
+        });
+
+        document.getElementById('subtotal').textContent = subtotal.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+        document.getElementById('total').textContent = (subtotal + shipping).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+
+        addEventListeners();
+    }
+
+    function addEventListeners() {
+        document.querySelectorAll('.quantity-input').forEach(input => {
+            input.addEventListener('change', e => {
+                const row = e.target.closest('tr');
+                const id = parseInt(row.getAttribute('data-id'));
+                const item = CartItems.find(c => c.CartItemID === id);
+                item.Quantity = parseInt(e.target.value);
+                renderCart();
+            });
+        });
+
+        document.querySelectorAll('.remove-btn').forEach(btn => {
+            btn.addEventListener('click', e => {
+                const row = btn.closest('tr');
+                const id = parseInt(row.getAttribute('data-id'));
+                const index = CartItems.findIndex(c => c.CartItemID === id);
+                if (index !== -1) CartItems.splice(index, 1);
+                renderCart();
+            });
+        });
+    }
+
+    renderCart();
+</script>

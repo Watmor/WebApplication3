@@ -50,6 +50,15 @@ namespace WebApplication3.Pages.Users
                 {
                     // Login successful. Redirect to the users index page.
                     // You can set a cookie or TempData here if you later add auth/session support.
+                    // Lấy dữ liệu user từ database
+                    int userId = Convert.ToInt32(reader["Id"]);
+                    string name = reader["Name"].ToString();
+
+                    // Lưu vào Session
+                    HttpContext.Session.SetInt32("UserId", userId);
+                    HttpContext.Session.SetString("UserName", name);
+
+
                     return RedirectToPage("Index");
                 }
                 else
@@ -68,6 +77,8 @@ namespace WebApplication3.Pages.Users
 #endif
                 return Page();
             }
+
+            
         }
 
 
@@ -106,12 +117,15 @@ namespace WebApplication3.Pages.Users
            
             AddUserInfo newUser = new AddUserInfo();
             newUser.Load(HttpContext);
-
+            //session cho gg
+            
 
             //    //{
+            ////session cho gg
+            //HttpContext.Session.SetString("UserEmail", UserEmail);
+            //HttpContext.Session.SetString("UserName", UserName);
 
-
-            return RedirectToPage("/Users/Index");
+            return RedirectToPage("/Pages/Index");
         }
 
         //public async Task<IActionResult> OnGetGoogleResponse()
@@ -175,6 +189,8 @@ namespace WebApplication3.Pages.Users
             public string UserName { get; private set; }
             public string UserEmail { get; private set; }
 
+
+            
             public void Load(HttpContext context)
             {
                 if (context.User.Identity != null && context.User.Identity.IsAuthenticated)
@@ -185,7 +201,11 @@ namespace WebApplication3.Pages.Users
                     // Debug: kiểm tra giá trị
                     Console.WriteLine($"UserName: {UserName}");
                     Console.WriteLine($"UserEmail: {UserEmail}");
+
+                    
+
                 }
+
 
                 try
                 {
@@ -225,6 +245,12 @@ namespace WebApplication3.Pages.Users
             }
     }
 
+
+        public IActionResult OnGetLogout()
+        {
+            HttpContext.Session.Clear();   // Xóa toàn bộ session
+            return RedirectToPage("/Users/Signin"); // Quay lại trang đăng nhập
+        }
 
         public class LoginInput
         {

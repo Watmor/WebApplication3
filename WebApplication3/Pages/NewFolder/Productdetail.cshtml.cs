@@ -1,10 +1,11 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
 using static System.Reflection.Metadata.BlobBuilder;
 
 namespace Bookstore.Pages.NewFolder
 {
+
     public class ProductdetailModel : PageModel
     {
 
@@ -47,6 +48,81 @@ namespace Bookstore.Pages.NewFolder
             catch (Exception ex)
             {
                 Console.WriteLine("An error occurred: " + ex.Message);
+            }
+        }
+
+        public IActionResult OnPostAddToCart(int BookID, int Quantity)
+        {
+            try
+            {
+                // Lấy User ID từ session (khi login bạn phải set session này)
+                int? userId = HttpContext.Session.GetInt32("UserID");
+
+                Console.WriteLine($"UserID from session: {userId}");
+
+
+                if (userId == null)
+                {
+                    // Nếu chưa login → chuyển về login
+                    return RedirectToPage("/Users/Signin");
+                }
+
+                string connectionString = "Data Source=localhost\\sqlexpress;Initial Catalog=users;Integrated Security=True;Trust Server Certificate=True";
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Kiểm tra xem sách này đã có trong giỏ chưa
+                    string checkSql = "SELECT Quantity FROM Cart WHERE UserID=@uid AND BookID=@bid";
+                    using (SqlCommand checkCmd = new SqlCommand(checkSql, connection))
+                    {
+                        checkCmd.Parameters.AddWithValue("@uid", userId);
+                        checkCmd.Parameters.AddWithValue("@bid", BookID);
+
+                        var result = checkCmd.ExecuteScalar();
+
+                        if (result != null)
+                        {
+                            // Nếu đã có → cập nhật số lượng
+                            string updateSql = @"UPDATE Cart 
+                                         SET Quantity = Quantity + @qty
+                                         WHERE UserID=@uid AND BookID=@bid";
+
+                            using (SqlCommand updateCmd = new SqlCommand(updateSql, connection))
+                            {
+                                updateCmd.Parameters.AddWithValue("@uid", userId);
+                                updateCmd.Parameters.AddWithValue("@bid", BookID);
+                                updateCmd.Parameters.AddWithValue("@qty", Quantity);
+
+                                updateCmd.ExecuteNonQuery();
+                            }
+                        }
+                        else
+                        {
+                            // Nếu chưa có → thêm mới
+                            string insertSql = @"INSERT INTO Cart(UserID, BookID, Quantity)
+                                         VALUES(@uid, @bid, @qty)";
+
+                            using (SqlCommand insertCmd = new SqlCommand(insertSql, connection))
+                            {
+                                insertCmd.Parameters.AddWithValue("@uid", userId);
+                                insertCmd.Parameters.AddWithValue("@bid", BookID);
+                                insertCmd.Parameters.AddWithValue("@qty", Quantity);
+
+                                insertCmd.ExecuteNonQuery();
+                            }
+                        }
+                    }
+                }
+
+                // Sau khi thêm giỏ hàng → chuyển đến trang Cart
+                return RedirectToPage("/Payment/Cart");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("AddToCart Error: " + ex.Message);
+                return Page();
             }
         }
         public void OnPost() 

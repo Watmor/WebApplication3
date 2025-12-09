@@ -272,7 +272,15 @@
                                 </ul>
                             </div>
                             <div class="d-flex gap-3 mt-4">
-                                <button class="btn btn-primary px-4 btn-lg" type="button">Add to Cart</button>
+                                @* <button class="btn btn-primary px-4 btn-lg" type="button">Add to Cart</button> *@
+                                <form method="post">
+                                    <input type="hidden" id="cart-book-id" name="BookID" />
+                                    <input type="hidden" id="cart-quantity" name="Quantity" value="1" />
+
+                                    <button class="btn btn-primary px-4 btn-lg" type="submit" formaction="?handler=AddToCart">
+                                        Add to Cart
+                                    </button>
+                                </form>
                                 <button class="btn btn-danger px-4 btn-lg" type="button">Buy Now</button>
                             </div>
                         </div>
@@ -315,6 +323,9 @@
             const button = event.relatedTarget;
             if (!button) return;
             const bookId = button.getAttribute('data-book-id');
+
+            // Gán BookID vào hidden input form
+            document.getElementById('cart-book-id').value = bookId;
 
             // Hiển thị loading
             modalTitle.textContent = "Loading...";
